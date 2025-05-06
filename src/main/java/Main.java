@@ -9,7 +9,7 @@ public class Main {
         
         Random r = new Random();
         
-        String input;
+        String input, input2;
         int status;
         int j = r.nextInt(1000);
         
@@ -21,7 +21,14 @@ public class Main {
           status = scanner.nextInt();
           System.exit(status);
         }
+        else if (input.equalsIgnoreCase("echo")) {
+          input2 = scanner.nextLine();
+          System.out.println(input2);
+        }
+        else {
         System.out.println(input + ": command not found");
+        }
+        
         }
     
     }
