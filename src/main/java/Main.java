@@ -13,8 +13,8 @@ public class Main {
         for (int i = 0;i < j;i++){
         System.out.print("$ ");
         String input = scanner.nextLine();
-        if (input == "0"){
-        System.exit();
+        if (input = "exit 0"){
+        System.exit(0);
         }
         System.out.println(input + ": command not found");
         }
