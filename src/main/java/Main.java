@@ -16,10 +16,9 @@ public class Main {
         for (int i = 0;i < j;i++){
         System.out.print("$ ");
         input = scanner.next();
-        status = scanner.nextInt();
-        
         
         if (input.equalsIgnoreCase("exit")) {
+          status = scanner.nextInt();
           System.exit(status);
         }
         System.out.println(input + ": command not found");
