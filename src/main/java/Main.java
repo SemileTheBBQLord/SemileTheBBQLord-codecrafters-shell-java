@@ -9,12 +9,18 @@ public class Main {
         
         Random r = new Random();
         
+        String input;
+        int status;
         int j = r.nextInt(1000);
+        
         for (int i = 0;i < j;i++){
         System.out.print("$ ");
-        String input = scanner.nextLine();
-        if (input == "exit 0"){
-        System.exit(0);
+        input = scanner.next();
+        status = scanner.nextInt();
+        
+        
+        if (input.equalsIgnoreCase("exit")) {
+          System.exit(status);
         }
         System.out.println(input + ": command not found");
         }
