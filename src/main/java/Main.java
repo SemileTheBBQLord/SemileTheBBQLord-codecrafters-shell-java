@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Random;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -6,7 +7,14 @@ public class Main {
         System.out.print("$ ");
 
         Scanner scanner = new Scanner(System.in);
+        
+        Random r = new Random();
+        
+        int j = r.nextInt(1000);
+        for (int i = 0;i < j;i++){
         String input = scanner.nextLine();
         System.out.println(input + ": command not found");
+        }
+    
     }
 }
