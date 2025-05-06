@@ -4,7 +4,6 @@ import java.util.Random;
 public class Main {
     public static void main(String[] args) throws Exception {
         // Uncomment this block to pass the first stage
-        System.out.print("$ ");
 
         Scanner scanner = new Scanner(System.in);
         
@@ -12,6 +11,7 @@ public class Main {
         
         int j = r.nextInt(1000);
         for (int i = 0;i < j;i++){
+        System.out.print("$ ");
         String input = scanner.nextLine();
         System.out.println(input + ": command not found");
         }
