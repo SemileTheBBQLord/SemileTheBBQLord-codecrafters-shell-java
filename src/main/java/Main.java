@@ -17,7 +17,7 @@ public class Main {
         System.out.print("$ ");
         input = scanner.next();
         
-        if (input.equalsIgnoreCase("exit ")) {
+        if (input.equalsIgnoreCase("exit")) {
           status = scanner.nextInt();
           System.exit(status);
         }
