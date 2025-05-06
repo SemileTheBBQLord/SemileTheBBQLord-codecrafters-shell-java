@@ -23,7 +23,7 @@ public class Main {
         }
         else if (input.equalsIgnoreCase("echo")) {
           input2 = scanner.nextLine();
-          System.out.println(input2);
+          System.out.println(input2.trim());
         }
         else {
         System.out.println(input + ": command not found");
