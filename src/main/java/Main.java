@@ -13,6 +13,9 @@ public class Main {
         for (int i = 0;i < j;i++){
         System.out.print("$ ");
         String input = scanner.nextLine();
+        if (input == "0"){
+        System.exit();
+        }
         System.out.println(input + ": command not found");
         }
     
