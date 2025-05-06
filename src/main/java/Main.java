@@ -25,6 +25,15 @@ public class Main {
           input2 = scanner.nextLine();
           System.out.println(input2.trim());
         }
+        else if(input.equalsIgnoreCase("type")) {
+          input2 = scanner.nextLine();
+          if (input2.equalsIgnoreCase(" exit") || input2.equalsIgnoreCase(" echo") || input2.equalsIgnoreCase(" type")){
+          System.out.println(input2.trim() + " is a shell builtin");
+          }
+          else {
+          System.out.println(input2.trim() + ": not found");
+          }
+        }
         else {
         System.out.println(input + ": command not found");
         }
