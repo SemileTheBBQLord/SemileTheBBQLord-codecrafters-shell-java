@@ -7,7 +7,7 @@ public class Main {
         // Uncomment this block to pass the first stage
 
         Scanner scanner = new Scanner(System.in);
-        String path_commands = System.getenv("TEMP");
+        String path_commands = System.getenv("PATH");
         String[] path_command = path_commands.split(";");
         Random r = new Random();
         String input, input2;
