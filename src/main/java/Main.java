@@ -34,9 +34,9 @@ public class Main {
           else {
           for (int n = 0; n < path_command.length; n++) {
             File file = new File(path_command[n], input2.trim());
-            if (file.exists()) {
-             System.out.println(input2.trim() + " is " + file.getAbsolutePath());
-            }
+
+            System.out.println(input2.trim() + " is " + file.getAbsolutePath());
+           
            }
           }
         }
