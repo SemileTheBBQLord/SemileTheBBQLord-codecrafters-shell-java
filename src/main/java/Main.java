@@ -35,9 +35,7 @@ public class Main {
           for (int n = 0; n < path_command.length; n++) {
             File file = new File(path_command[n], input2);
 
-            if (file.exists()) {
             System.out.println(input2 + " is " + file.getPath());
-            }
           }
         }
         else {
