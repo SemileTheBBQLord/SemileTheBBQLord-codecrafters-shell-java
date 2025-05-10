@@ -1,3 +1,4 @@
+import java.io.File;
 import java.util.Scanner;
 import java.util.Random;
 
@@ -6,9 +7,9 @@ public class Main {
         // Uncomment this block to pass the first stage
 
         Scanner scanner = new Scanner(System.in);
-        
+        String path_commands = System.getenv("PATH");
+        String[] path_command = path_commands.split(";");
         Random r = new Random();
-        
         String input, input2;
         int status;
         int j = r.nextInt(1000);
@@ -31,7 +32,12 @@ public class Main {
           System.out.println(input2.trim() + " is a shell builtin");
           }
           else {
-          System.out.println(input2.trim() + ": not found");
+          for (int n = 0; n < path_command.length; n++) {
+            File file = new File(path_command[i], input);
+            if (file.exists()) {
+             System.out.println(input + " is " + file.getAbsolutePath());
+            }
+           }
           }
         }
         else {
