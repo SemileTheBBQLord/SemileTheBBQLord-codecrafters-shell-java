@@ -28,16 +28,16 @@ public class Main {
         }
         else if(input.equalsIgnoreCase("type")) {
           input2 = scanner.nextLine();
-          if (input2.equalsIgnoreCase(" exit") || input2.equalsIgnoreCase(" echo") || input2.equalsIgnoreCase(" type")){
-          System.out.println(input2.trim() + " is a shell builtin");
+          input2 = input2.trim();
+          if (input2.equalsIgnoreCase("exit") || input2.equalsIgnoreCase("echo") || input2.equalsIgnoreCase("type")){
+          System.out.println(input2 + " is a shell builtin");
           }
-          else {
           for (int n = 0; n < path_command.length; n++) {
-            File file = new File(path_command[n], input2.trim());
+            File file = new File(path_command[n], input2);
 
-            System.out.println(input2.trim() + " is " + file.getAbsolutePath());
-           
-           }
+            if (file.exists()) {
+            System.out.println(input2 + " is " + file.getPath());
+            }
           }
         }
         else {
