@@ -7,10 +7,6 @@ public class Main {
         // Uncomment this block to pass the first stage
 
         Scanner scanner = new Scanner(System.in);
-        /*
-        String path_commands = System.getenv("PATH");
-        String[] path_command = path_commands.split(";");
-        */
         String[] paths = System.getenv("PATH").split(":");
         Random r = new Random();
         String input, input2;
@@ -35,12 +31,10 @@ public class Main {
           if (input2.equalsIgnoreCase("exit") || input2.equalsIgnoreCase("echo") || input2.equalsIgnoreCase("type")){
           System.out.println(input2 + " is a shell builtin");
           }
-           else {
+          else {
             boolean foundFile = false;
             for (String path : paths) {
-              // Check if the file exists in the path and is executable
-              if (new File(path + "/" + input2).exists() &&
-                  new File(path + "/" + input2).canExecute()) {
+              if (new File(path + "/" + input2).exists() && new File(path + "/" + input2).canExecute()) {
                 System.out.println(input2 + " is " + path + "/" + input2);
                 foundFile = true;
                 break;
@@ -48,14 +42,7 @@ public class Main {
             }
             if (!foundFile)
               System.out.println(input2 + ": not found");
-          }          
-          /*for (int n = 0; n < path_command.length; n++) {
-            File file = new File(path_command[n], input2);
-            if (file.exists()) {
-            System.out.println(input2 + " is " + file.getPath());
-            }
            }
-           */
         }
         else {
         System.out.println(input + ": command not found");
