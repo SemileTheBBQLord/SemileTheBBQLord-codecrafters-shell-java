@@ -11,7 +11,7 @@ public class Main {
         String path_commands = System.getenv("PATH");
         String[] path_command = path_commands.split(";");
         */
-        String[] paths = System.getenv("PATH").split(":");
+        String[] paths = System.getenv("PATH").split(";");
         Random r = new Random();
         String input, input2;
         int status;
@@ -57,16 +57,9 @@ public class Main {
            }
            */
         }
-         else if (input.equalsIgnoreCase("export")) {
-          input2 = scanner.nextLine().trim();
-          if (input2.startsWith("PATH=")) {
-           String newPath = input2.substring(5); // Remove "PATH="
-           paths = newPath.split(";");
-           System.out.println("PATH updated.");
-         }
-         else {
-          System.out.println(input + ": command not found");
-         }
+        else {
+        System.out.println(input + ": command not found");
+        }
         
         }
     
