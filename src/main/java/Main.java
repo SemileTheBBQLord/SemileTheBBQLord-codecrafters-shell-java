@@ -32,10 +32,13 @@ public class Main {
           if (input2.equalsIgnoreCase("exit") || input2.equalsIgnoreCase("echo") || input2.equalsIgnoreCase("type")){
           System.out.println(input2 + " is a shell builtin");
           }
-          for (int n = 0; n < path_command.length; n++) {
-            File file = new File(path_command[n], input2);
-
-            System.out.println(input2 + " is " + file.getPath());
+          else if (path_commands.contains(input2)){
+           for (int n = 0; n < path_command.length; n++) {
+             File file = new File(path_command[n], input2);
+            if (file.exists()) {
+            System.out.println(input2 + " is " + file.getAbsolutePath());
+            }
+           }
           }
         }
         else {
