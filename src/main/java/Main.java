@@ -11,7 +11,7 @@ public class Main {
         String path_commands = System.getenv("PATH");
         String[] path_command = path_commands.split(";");
         */
-        String[] paths = System.getenv("PATH").split(";");
+        String[] paths = System.getenv("PATH").split(":");
         Random r = new Random();
         String input, input2;
         int status;
