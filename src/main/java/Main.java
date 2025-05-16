@@ -1,4 +1,5 @@
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Random;
 
@@ -7,7 +8,10 @@ public class Main {
         // Uncomment this block to pass the first stage
 
         Scanner scanner = new Scanner(System.in);
-        String[] paths = System.getenv("PATH").split(":");
+        
+        String filePath = System.getenv("PATH");
+        String[] paths = filePath.split(";");
+        
         Random r = new Random();
         String input, input2;
         int status;
@@ -17,37 +21,51 @@ public class Main {
         System.out.print("$ ");
         input = scanner.next();
         
-        if (input.equalsIgnoreCase("exit")) {
-          status = scanner.nextInt();
-          System.exit(status);
-        }
-        else if (input.equalsIgnoreCase("echo")) {
+        switch (input){
+         case "echo":
           input2 = scanner.nextLine();
           System.out.println(input2.trim());
-        }
-        else if(input.equalsIgnoreCase("type")) {
+          break;
+         case "exit":
+          status = scanner.nextInt();
+          System.exit(status);     
+          break;
+         case "type":
           input2 = scanner.nextLine();
           input2 = input2.trim();
-          if (input2.equalsIgnoreCase("exit") || input2.equalsIgnoreCase("echo") || input2.equalsIgnoreCase("type")){
-          System.out.println(input2 + " is a shell builtin");
-          }
-          else {
+          switch (input2){
+           case "echo":
+            System.out.println(input2 + " is a shell builtin");
+            break;
+           case "exit":
+            System.out.println(input2 + " is a shell builtin");
+            break;
+           case "type":
+            System.out.println(input2 + " is a shell builtin");
+            break;
+           default:
             boolean foundFile = false;
             for (String path : paths) {
-              if (new File(path + "/" + input2).exists() && new File(path + "/" + input2).canExecute()) {
-                System.out.println(input2 + " is " + path + "/" + input2);
-                foundFile = true;
-                break;
+             if (new File(path + "/" + input2).exists() && new File(path + "/" + input2).canExecute()) {
+              System.out.println(input2 + " is " + path + "/" + input2);
+             foundFile = true;
+             break;
               }
-            }
-            if (!foundFile)
+             }
+             if (!foundFile)
               System.out.println(input2 + ": not found");
+              break;
            }
-        }
-        else {
-        System.out.println(input + ": command not found");
-        }
-        
+         break;
+         default:
+          if (new File(input).exists() && new File(input).canExecute()){
+          System.out.println(input);
+          }
+          else{
+          System.out.println(input + ": command not found");
+          }
+          break;
+         }        
         }
     
     }
