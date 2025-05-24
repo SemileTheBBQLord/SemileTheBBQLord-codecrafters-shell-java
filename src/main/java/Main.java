@@ -64,18 +64,19 @@ public class Main {
            }
            break;
           default:
-          ProcessBuilder openFile = new ProcessBuilder(input);
+          
+          if (new File(inputs[0]).exists() == true) {
+          ProcessBuilder openFile = new ProcessBuilder(inputs[0]);
           Process process = openFile.start();
           BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
           String s = null;
            while ((s = reader.readLine()) != null) {
             System.out.println(s);
            }
-          /*
+          }
           else{
           System.out.println(input + ": command not found");
           }
-          */
           break;
          }        
         }
