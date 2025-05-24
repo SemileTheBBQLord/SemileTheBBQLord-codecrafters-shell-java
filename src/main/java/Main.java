@@ -62,18 +62,19 @@ public class Main {
            }
            break;
           default:
-          if (new File("/"+ input).exists() && new File("/" + input).canExecute()) {
-           ProcessBuilder openFile = new ProcessBuilder(input);
-           Process process = openFile.start();
-           BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-           String s = null;
-            while ((s = reader.readLine()) != null) {
-             System.out.println(s);
-            }
+          
+          ProcessBuilder openFile = new ProcessBuilder(input);
+          Process process = openFile.start();
+          BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+          String s = null;
+           while ((s = reader.readLine()) != null) {
+            System.out.println(s);
            }
+          /*
           else{
           System.out.println(input + ": command not found");
           }
+          */
           break;
          }        
         }
