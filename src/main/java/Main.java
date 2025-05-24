@@ -8,6 +8,15 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class Main {
+    public static boolean canRunExternal(String[] in) {
+        try {
+            ProcessBuilder chkprocess = new ProcessBuilder(in);
+            Process verify = chkprocess.start();
+            return verify.exitValue() == 0;
+        } catch (Exception e) {
+            return false;
+        }
+    }
     public static void main(String[] args) throws Exception {
         // Uncomment this block to pass the first stage
 
@@ -64,7 +73,7 @@ public class Main {
            }
            break;
           default:
-          //Will fix this later.
+          if(canRunExternal(inputs) == true) {
           ProcessBuilder openFile = new ProcessBuilder(inputs);
           Process process = openFile.start();
           BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
@@ -72,11 +81,10 @@ public class Main {
            while ((s = reader.readLine()) != null) {
             System.out.println(s);
            }
-          /*
+          }
           else{
           System.out.println(inputs[0] + ": command not found");
           }
-          */
           
           break;
          }        
