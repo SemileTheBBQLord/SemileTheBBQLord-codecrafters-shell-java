@@ -62,9 +62,9 @@ public class Main {
            }
            break;
           default:
-          if (filePath.contains(input)) {
-           ProcessBuilder pb = new ProcessBuilder(input);
-           Process process = pb.start();
+          if (new File(input).exists() && new File(input).canExecute()) {
+           ProcessBuilder openFile = new ProcessBuilder(input);
+           Process process = openFile.start();
            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
            String s = null;
             while ((s = reader.readLine()) != null) {
