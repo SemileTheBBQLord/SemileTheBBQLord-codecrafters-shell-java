@@ -58,6 +58,9 @@ public class Main {
            case "type":
             System.out.println(inputs[1] + " is a shell builtin");
             break;
+           case "pwd":
+            System.out.println(inputs[1] + " is a shell builtin");
+            break;
            default:
             boolean foundFile = false;
             for (String path : paths) {
