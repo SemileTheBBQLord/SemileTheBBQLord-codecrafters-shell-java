@@ -64,7 +64,7 @@ public class Main {
            }
            break;
           default:
-          if (new File(inputs[0]).canExecute()){
+          //Will fix this later.
           ProcessBuilder openFile = new ProcessBuilder(inputs);
           Process process = openFile.start();
           BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
@@ -72,10 +72,12 @@ public class Main {
            while ((s = reader.readLine()) != null) {
             System.out.println(s);
            }
-          }
+          /*
           else{
           System.out.println(inputs[0] + ": command not found");
           }
+          */
+          
           break;
          }        
         }
