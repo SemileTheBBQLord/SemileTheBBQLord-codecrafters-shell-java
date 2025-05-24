@@ -44,7 +44,7 @@ public class Main {
           System.out.print("\n");
           break;
          case "exit":
-          status = scanner.nextInt();
+          status = Integer.parseInt(inputs[1]);
           System.exit(status);     
           break;
          case "type":
