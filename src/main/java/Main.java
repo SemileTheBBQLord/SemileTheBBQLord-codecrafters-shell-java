@@ -1,4 +1,8 @@
+import java.io.*;
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
 import java.io.File;
+import java.util.Objects;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Random;
@@ -10,7 +14,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         
         String filePath = System.getenv("PATH");
-        String[] paths = filePath.split(";");
+        String[] paths = filePath.split(":");
         
         Random r = new Random();
         String input, input2;
@@ -56,14 +60,30 @@ public class Main {
               System.out.println(input2 + ": not found");
               break;
            }
-         break;
-         default:
-          if (new File(input).exists() && new File(input).canExecute()){
-          System.out.println(input);
+           break;
+          default:
+          for (String path : paths) {
+             if (new File(input).exists() && new File(input).canExecute()) {
+              ProcessBuilder pb = new ProcessBuilder(input);
+              Process process = pb.start();
+              BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+              String s = null;
+              while ((s = reader.readLine()) != null) {
+               System.out.println(s);
+               }
+              break;
+              }
           }
-          else{
-          System.out.println(input + ": command not found");
-          }
+          /*if (filePath.contains(input)) {
+           ProcessBuilder pb = new ProcessBuilder(input);
+           Process process = pb.start();
+           BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+           String s = null;
+            while ((s = reader.readLine()) != null) {
+             System.out.println(s);
+            }
+           }
+           */
           break;
          }        
         }
