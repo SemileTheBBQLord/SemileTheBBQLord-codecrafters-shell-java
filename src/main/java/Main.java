@@ -62,28 +62,18 @@ public class Main {
            }
            break;
           default:
-          for (String path : paths) {
-             if (new File(input).exists() && new File(input).canExecute()) {
-              ProcessBuilder pb = new ProcessBuilder(input);
-              Process process = pb.start();
-              BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-              String s = null;
-              while ((s = reader.readLine()) != null) {
-               System.out.println(s);
-               }
-              break;
-              }
-          }
-          /*if (filePath.contains(input)) {
+          if (filePath.contains(input)) {
            ProcessBuilder pb = new ProcessBuilder(input);
            Process process = pb.start();
            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
            String s = null;
-            while ((s = reader.readLine()) != null) {
+            while ((s = stdInput.readLine()) != null) {
              System.out.println(s);
             }
            }
-           */
+          else{
+          System.out.println(input + ": command not found");
+          }
           break;
          }        
         }
