@@ -18,11 +18,11 @@ public class Main {
         }
     }
     public static void main(String[] args) throws Exception {
-        // Uncomment this block to pass the first stage
 
         Scanner scanner = new Scanner(System.in);
         
         String filePath = System.getenv("PATH");
+        File f = new File(filePath);
         String[] paths = filePath.split(":");
         
         Random r = new Random();
@@ -71,6 +71,9 @@ public class Main {
               System.out.println(inputs[1] + ": not found");
               break;
            }
+           break;
+          case "pwd":
+           System.out.println(f.getAbsolutePath());
            break;
           default:
           if(canRunExternal(inputs) == true) {
