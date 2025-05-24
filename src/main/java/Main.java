@@ -22,7 +22,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         
         String filePath = System.getenv("PATH");
-        File f = new File("app");
+        File f = new File("");
         String[] paths = filePath.split(":");
         
         Random r = new Random();
