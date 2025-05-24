@@ -76,7 +76,7 @@ public class Main {
            }
            break;
           case "pwd":
-           System.out.println(f.getAbsolutePath());
+           System.out.println(f.getPath());
            break;
           default:
           if(canRunExternal(inputs) == true) {
