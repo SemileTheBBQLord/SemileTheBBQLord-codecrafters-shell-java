@@ -62,7 +62,7 @@ public class Main {
            }
            break;
           default:
-          if (new File(input).exists() && new File(input).canExecute()) {
+          if (new File("/"+ input).exists() && new File("/" + input).canExecute()) {
            ProcessBuilder openFile = new ProcessBuilder(input);
            Process process = openFile.start();
            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
