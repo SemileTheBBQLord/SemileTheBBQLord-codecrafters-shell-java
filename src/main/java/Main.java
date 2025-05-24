@@ -18,53 +18,53 @@ public class Main {
         
         Random r = new Random();
         String input, input2;
+        String[] inputs;
         int status;
         int j = r.nextInt(1000);
         
         for (int i = 0;i < j;i++){
         System.out.print("$ ");
-        input = scanner.next();
+        input = scanner.nextLine();
+        inputs = input.split(" ");
         
-        switch (input){
+        switch (inputs[0]){
          case "echo":
-          input2 = scanner.nextLine();
-          System.out.println(input2.trim());
+          for (int z = 1; z < inputs.length; z++){
+          System.out.print(inputs[z] + " ");
+          }
+          System.out.print("\n");
           break;
          case "exit":
           status = scanner.nextInt();
           System.exit(status);     
           break;
          case "type":
-          input2 = scanner.nextLine();
-          input2 = input2.trim();
-          switch (input2){
+          switch (inputs[1]){
            case "echo":
-            System.out.println(input2 + " is a shell builtin");
+            System.out.println(inputs[1] + " is a shell builtin");
             break;
            case "exit":
-            System.out.println(input2 + " is a shell builtin");
+            System.out.println(inputs[1] + " is a shell builtin");
             break;
            case "type":
-            System.out.println(input2 + " is a shell builtin");
+            System.out.println(inputs[1] + " is a shell builtin");
             break;
            default:
             boolean foundFile = false;
             for (String path : paths) {
-             if (new File(path + "/" + input2).exists() && new File(path + "/" + input2).canExecute()) {
-              System.out.println(input2 + " is " + path + "/" + input2);
+             if (new File(path + "/" + inputs[1]).exists() && new File(path + "/" + inputs[1]).canExecute()) {
+              System.out.println(inputs[1] + " is " + path + "/" + inputs[1]);
              foundFile = true;
              break;
               }
              }
              if (!foundFile)
-              System.out.println(input2 + ": not found");
+              System.out.println(inputs[1] + ": not found");
               break;
            }
            break;
           default:
-          input2 = scanner.nextLine();
-          input2 = input2.trim();
-          ProcessBuilder openFile = new ProcessBuilder((input + " " + input2));
+          ProcessBuilder openFile = new ProcessBuilder(input);
           Process process = openFile.start();
           BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
           String s = null;
