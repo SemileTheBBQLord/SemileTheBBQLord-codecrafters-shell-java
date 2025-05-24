@@ -62,8 +62,9 @@ public class Main {
            }
            break;
           default:
-          
-          ProcessBuilder openFile = new ProcessBuilder(input);
+          input2 = scanner.nextLine();
+          input2 = input2.trim();
+          ProcessBuilder openFile = new ProcessBuilder((input + " " + input2));
           Process process = openFile.start();
           BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
           String s = null;
