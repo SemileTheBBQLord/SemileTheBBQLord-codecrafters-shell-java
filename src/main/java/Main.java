@@ -67,7 +67,7 @@ public class Main {
            Process process = pb.start();
            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
            String s = null;
-            while ((s = stdInput.readLine()) != null) {
+            while ((s = reader.readLine()) != null) {
              System.out.println(s);
             }
            }
