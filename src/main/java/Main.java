@@ -26,7 +26,7 @@ public class Main {
         String[] paths = filePath.split(":");
         
         Random r = new Random();
-        String input, input2;
+        String input;
         String[] inputs;
         int status;
         int j = r.nextInt(1000);
@@ -61,6 +61,9 @@ public class Main {
            case "pwd":
             System.out.println(inputs[1] + " is a shell builtin");
             break;
+           case "cd":
+            System.out.println(inputs[1] + " is a shell builtin");
+            break;
            default:
             boolean foundFile = false;
             for (String path : paths) {
@@ -77,6 +80,13 @@ public class Main {
            break;
           case "pwd":
            System.out.println(f.getAbsolutePath());
+           break;
+           case "cd":
+           f = new File(inputs[1]);
+           if (f.exists() == false) {
+           System.out.println("cd: " + inputs[1] + ": No such file or directory");
+           break;
+           }
            break;
           default:
           if(canRunExternal(inputs) == true) {
