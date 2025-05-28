@@ -38,9 +38,8 @@ public class Main {
         String[] paths = filePath.split(":");
         
         Random r = new Random();
-        String input, link;
+        String input;
         String[] inputs;
-        String[] url;
         int status;
         int j = r.nextInt(1000);
         
