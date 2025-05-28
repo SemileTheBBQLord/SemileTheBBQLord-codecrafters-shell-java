@@ -1,4 +1,6 @@
 import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
 import java.io.File;
@@ -17,6 +19,16 @@ public class Main {
             return false;
         }
     }
+    public static File cdHandler(File currentDir, String dir) {
+     Path currentPath = Paths.get(currentDir.getPath());
+     Path newPath = currentPath.resolve(dir).toAbsolutePath().normalize();
+     File newDir = newPath.toFile();
+     if (newDir.isDirectory()) {
+       return newDir;
+     }
+     System.out.println(newDir + ": No such file or directory");
+     return currentDir;
+    }
     public static void main(String[] args) throws Exception {
 
         Scanner scanner = new Scanner(System.in);
@@ -26,8 +38,9 @@ public class Main {
         String[] paths = filePath.split(":");
         
         Random r = new Random();
-        String input;
+        String input, link;
         String[] inputs;
+        String[] url;
         int status;
         int j = r.nextInt(1000);
         
@@ -81,12 +94,8 @@ public class Main {
           case "pwd":
            System.out.println(f.getAbsolutePath());
            break;
-           case "cd":
-           f = new File(inputs[1]);
-           if (f.exists() == false) {
-           System.out.println("cd: " + inputs[1] + ": No such file or directory");
-           break;
-           }
+          case "cd":
+           f = cdHandler(f, inputs[1]);
            break;
           default:
           if(canRunExternal(inputs) == true) {
