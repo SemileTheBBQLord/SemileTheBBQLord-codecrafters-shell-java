@@ -51,7 +51,13 @@ public class Main {
         switch (inputs[0]){
          case "echo":
           for (int z = 1; z < inputs.length; z++){
-          System.out.print(inputs[z] + " ");
+          if (inputs[z].contains("'")) {
+           inputs[z] = inputs[z].replace("'", "");
+           System.out.print(inputs[z] + " ");
+           }
+          else {
+           System.out.print(inputs[z] + " ");
+           }
           }
           System.out.print("\n");
           break;
