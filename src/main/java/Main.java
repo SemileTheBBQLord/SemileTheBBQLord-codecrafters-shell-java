@@ -95,7 +95,7 @@ public class Main {
            break;
           case "cd":
            if (inputs[1].equals("~")){
-           f = new File(System.getenv("USERPROFILE"));
+           f = new File(System.getenv("HOME"));
            break;
            }
            else {
