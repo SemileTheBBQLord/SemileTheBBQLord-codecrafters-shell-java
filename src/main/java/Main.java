@@ -94,7 +94,13 @@ public class Main {
            System.out.println(f.getAbsolutePath());
            break;
           case "cd":
+           if (inputs[1].equals("~")){
+           f = new File(System.getenv("USERPROFILE"));
+           break;
+           }
+           else {
            f = cdHandler(f, inputs[1]);
+           }
            break;
           default:
           if(canRunExternal(inputs) == true) {
