@@ -14,9 +14,9 @@ public class Main {
     File currentDirectories;
     public void main(String[] args) throws Exception {
         
-        String filePath = getFilePath(); 
-        File currentDirectories = getCurrentDirectory(); 
-        String[] currentPaths = splitPathsinWindows(filePath); 
+        getFilePath(); 
+        getCurrentDirectory(); 
+        splitPathsinWindows(filePath); 
         
         boolean isRunning = true;
 
@@ -31,19 +31,17 @@ public class Main {
      }
     }
 
-    public String getFilePath() {
-     String filePath = System.getenv("PATH");
-     return filePath;
+    public void getFilePath() {
+     filePath = System.getenv("PATH");
     }
 
-    public File getCurrentDirectory() {
-     File currentDirectory = new File(" ");
-     return currentDirectory;
+    public void getCurrentDirectory() {
+     currentDirectories = new File(" ");
     }
 
-    public String[] splitPathsinWindows(String path) {
+    public void splitPathsinWindows(String path) {
      String[] paths = path.split(":");
-     return paths;
+     currentPaths = paths;
     }
 
     public void promptUserInput() throws Exception {
